@@ -66,9 +66,11 @@ equals([L1|Ls1], [L2|Ls2]) :-
   % Call unnest_v1 on both lists, flattening both
   unnest_v1([L1|Ls1], FlatL1),
   unnest_v1([L2|Ls2], FlatL2),
+  sort(FlatL1, L1sorted),
+  sort(FlatL2, L2sorted),
 
   % Calls 'compare' comparing the two lists, returns true if lists are equal
-  compare(FlatL1, FlatL2).
+  compare(L1sorted, L2sorted).
 
 
 
